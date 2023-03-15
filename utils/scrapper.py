@@ -21,7 +21,7 @@ def scrapeXMLSwimmers(idcpt):
     swimmers = root.findall('./MEETS/MEET/SWIMMERS/SWIMMER')
     swimmer_names = [swimmer.attrib['firstname'] + ' ' + swimmer.attrib['lastname'] for swimmer in swimmers]
 
-    return json.dumps(swimmer_names)
+    return json.dumps(swimmer_names, ensure_ascii=False)
 
 
 def scrapeXMLClubs(idcpt):
@@ -42,7 +42,7 @@ def scrapeXMLClubs(idcpt):
     clubs = root.findall('./MEETS/MEET/CLUBS/CLUB')
     club_names = [club.attrib['name'] for club in clubs]
 
-    return json.dumps(club_names)
+    return json.dumps(club_names, ensure_ascii=False)
 
 
 if __name__ == '__main__':
